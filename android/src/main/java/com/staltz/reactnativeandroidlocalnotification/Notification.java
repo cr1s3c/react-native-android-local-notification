@@ -116,12 +116,12 @@ public class Notification {
         NotificationCompat.Builder notificationBuilder;
         String iconName = attributes.smallIcon != null ? attributes.smallIcon : "ic_launcher";
         int iconResource = context.getResources().getIdentifier(attributes.smallIcon, "mipmap", context.getPackageName());
-        String channelID = attributes.channelID != null ? attributes.channelID : "channel_0";
+        String channelID = "channel_0";
         if (iconResource == 0) {
             Log.w("Notification", "icon resource not found with name " + iconName);
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            String channelName = attributes.channelName != null ? attributes.channelName : "Default";
+            String channelName = "Default";
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
             NotificationManager notificationManager = getSysNotificationManager();
             NotificationChannel channel = new NotificationChannel(channelID, channelName, importance);
